@@ -9,13 +9,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
-        Text("Hello, World!")
+
+        TabView {
+            
+            HomeView()
+                .tabItem {
+                    Tab(imageName: "chart.bar", text: "Home")
+            }
+            .tag(0)
+
+
+//            MapContainerView()
+//                .edgesIgnoringSafeArea(.vertical)
+//                .tabItem {
+//                    Tab(imageName: "map", text: "Map")
+//            }
+//            .tag(1)
+        }
+
     }
+    
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+private struct Tab: View {
+    
+    let imageName: String
+    let text: String
+    
+    var body: some View {
+        
+        VStack {
+            Image(systemName: imageName)
+            Text(text)
+        }
+        
     }
 }
